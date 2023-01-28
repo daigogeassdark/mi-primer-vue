@@ -1,5 +1,5 @@
 <script setup>
- const name = 'Hola Proyecto Vue 3'
+ const name = 'Hola Proyecto Vue 3 vfor objetos'
  const arrayFrutas =  {
             name: "Manzana",
             price: "$1.00",
