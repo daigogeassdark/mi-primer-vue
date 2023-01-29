@@ -1,20 +1,23 @@
 <script setup>
- const name = 'Hola Proyecto Vue 3 v-on ejemplos '
+import { ref } from 'vue';
 
-const click1 = (message) => {
-  console.log(message)
-}
-const click2 = (message) => {
-  console.log(message)
+ const name = 'Hola Proyecto Vue 3 botones con reactividad ejemplo con ref()'
+ //se usa ref para hacer reactiva la variable contador
+const contador = ref(0);
+//se usa const para hacer reactiva la variable contador con una funcion de flecha
+const incrementar = () => {
+   contador.value++
+  console.log('Click 1 incrementar'+contador)
 }
 </script>
 
 <template>
  <h1>Hola {{ name }}!</h1>
- <!--Click 1 avreviado-->
-  <button @click="click1('mensaje 1')" class="btn btn-info">Click1</button>
-  <!--Click 2 completo-->
-  <button v-on:click="click2('mensaje 2')" class="btn btn-sucess">Click2</button>
+ 
+ <h2>Incremento de numeros: {{ contador }} </h2>
+ <!--Click 1 incrementar-->
+  <button @click="incrementar">Click para incrementar</button>
+ 
 </template>
 <style>
 button{
