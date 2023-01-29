@@ -1,38 +1,31 @@
 <script setup>
- const name = 'Hola Proyecto Vue 3 v-for y v-if + template'
- const arrayFrutas = [
-    {
-        name: "Manzana",
-        price: "$1.00",
-        description: "Una manzana",
-        stock: 0,
-    },
-    {
-        name: "Pera",
-        price: "$2.00",
-        description: "Una pera",
-        stock: 10,
-    },
-    {
-        name: "Naranja",
-        price: "$3.00",
-        description: "Una naranja",
-        stock: 20,
-    },
-];
+ const name = 'Hola Proyecto Vue 3 v-on ejemplos '
+
+const click1 = () => {
+  console.log('click')
+}
+const click2 = () => {
+  console.log('click2')
+}
 </script>
 
 <template>
  <h1>Hola {{ name }}!</h1>
-  <ul>
-      <template v-for="item in arrayFrutas" :key="item.name">
-        <li  v-if="item.stock > 0 ">
-          {{ item.name }} - {{ item.price }} - {{ item.description }} - {{ item.stock }}
-        </li>
-      </template>    
-  </ul>
+ <!--Click 1 avreviado-->
+  <button @click="click1" class="btn btn-info">Click1</button>
+  <!--Click 2 completo-->
+  <button v-on:click="click2" class="btn btn-sucess">Click2</button>
 </template>
 <style>
+button{
+  margin: 10px;
+  color:green;
+  border: 1px solid red;
+  border-radius: 25%!important;
+  width:90px!important;
+  height: 40px!important; ;
+
+}
 h1 {
   color: red;
 }
