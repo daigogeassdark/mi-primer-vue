@@ -1,39 +1,51 @@
 <script setup>
- const name = 'Hola Proyecto Vue 3 v-for y v-if + template'
- const arrayFrutas = [
-    {
-        name: "Manzana",
-        price: "$1.00",
-        description: "Una manzana",
-        stock: 0,
-    },
-    {
-        name: "Pera",
-        price: "$2.00",
-        description: "Una pera",
-        stock: 10,
-    },
-    {
-        name: "Naranja",
-        price: "$3.00",
-        description: "Una naranja",
-        stock: 20,
-    },
-];
+import { ref, computed } from "vue";
+
+const name = "Vue 3";
+
+const counter = ref(0);
+
+const increment = () => {
+    counter.value++;
+};
+
+const decrement = () => {
+    counter.value--;
+};
+
+const reset = () => {
+    counter.value = 0;
+};
+
+const classCounter = computed(() => {
+    if (counter.value === 0) {
+        return "zero";
+    }
+    return counter.value > 0 ? "positive" : "negative";
+});
+
 </script>
 
 <template>
- <h1>Hola {{ name }}!</h1>
-  <ul>
-      <template v-for="item in arrayFrutas" :key="item.name">
-        <li  v-if="item.stock > 0 ">
-          {{ item.name }} - {{ item.price }} - {{ item.description }} - {{ item.stock }}
-        </li>
-      </template>    
-  </ul>
+    <h1>Hola {{ name }}!</h1>
+    <h2 :class="classCounter">
+        {{ counter }}
+    </h2>
+    <button @click="increment">Incremet</button>
+    <button @click="decrement">Decrement</button>
+    <button @click="reset">Reset</button>
 </template>
+
 <style>
-h1 {
-  color: red;
+.negative {
+    color: red;
+}
+
+.positive {
+    color: green;
+}
+
+.zero {
+    color: black;
 }
 </style>
